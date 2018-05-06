@@ -1,0 +1,18 @@
+int contarpassageiros(aviao **inicio,aviao **fim){
+
+    int cont=0;
+    aviao *aux,*prox;
+    aux=prox=(*inicio);
+
+    do{
+        prox=(*inicio)->proximo;
+        (*inicio)->proximo=NULL;
+        cont+=(*inicio)->conta_p;
+        (*fim)->proximo=(*inicio);
+        (*fim)=(*inicio);
+        (*inicio)=prox;
+
+    }while((*inicio)!=aux);
+
+    return cont;
+}
